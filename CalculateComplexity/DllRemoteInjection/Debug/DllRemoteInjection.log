@@ -1,0 +1,34 @@
+﻿生成启动时间为 2017/6/15 11:16:02。
+     1>项目“E:\IDE\VC6.0\MyProject\CalculateComplexity\DllRemoteInjection\DllRemoteInjection.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\DllRemoteInjection.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         E:\IDE\VC6.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\DllRemoteInjection.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DllRemoteInjection.cpp
+         DllRemoteInjection.cpp
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\dllremoteinjection\dllremoteinjection.cpp(101): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\stdio.h(304) : 参见“scanf”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\dllremoteinjection\dllremoteinjection.cpp(107): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\stdio.h(304) : 参见“scanf”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\dllremoteinjection\dllremoteinjection.cpp(128): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(105) : 参见“strcpy”的声明
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         E:\IDE\VC6.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\DllRemoteInjection.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\DllRemoteInjection.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\DllRemoteInjection.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\DllRemoteInjection.lib" /MACHINE:X86 Debug\DllRemoteInjection.exe.embed.manifest.res
+         Debug\DllRemoteInjection.obj
+         Debug\stdafx.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\DllRemoteInjection.exe.embed.manifest" /manifest Debug\DllRemoteInjection.exe.intermediate.manifest
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         DllRemoteInjection.vcxproj -> E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\DllRemoteInjection.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\DllRemoteInjection.unsuccessfulbuild”。
+         正在对“Debug\DllRemoteInjection.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\IDE\VC6.0\MyProject\CalculateComplexity\DllRemoteInjection\DllRemoteInjection.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.00

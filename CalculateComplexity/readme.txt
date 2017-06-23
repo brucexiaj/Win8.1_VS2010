@@ -1,0 +1,9 @@
+各文件夹对应的算法如下：
+ApproxSubsetSum：子集合近似算法
+ApproxVertexCover：顶点覆盖近似算法
+LiftToFront:提前算法
+MaxFlowKarp：埃氏算法
+SetCoverProblem:集合覆盖问题
+TSPProblem：旅行商问题
+Graphics:普里姆算法
+GraphicsKruskal:克鲁斯卡尔算法

@@ -1,0 +1,71 @@
+﻿生成启动时间为 2017/5/9 16:10:28。
+     1>项目“E:\IDE\VC6.0\MyProject\CalculateComplexity\TcpRpcServer\TcpRpcServer.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\TcpRpcServer.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         E:\IDE\VC6.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\TcpRpcServer.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt TcpRpcServer.cpp
+         TcpRpcServer.cpp
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(12): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 e:\ide\vc6.0\vc\include\stdlib.h(867) : 参见“itoa”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(16): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(17): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(18): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(27): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(37): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(72): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(78): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(83): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(88): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\stdio.h(371) : 参见“sprintf”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(103): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 e:\ide\vc6.0\vc\include\stdlib.h(867) : 参见“itoa”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(106): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(107): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(108): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(109): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(110): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(111): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(121): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(133): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(222): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\tcprpcserver\tcprpcserver.cpp(233): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\ide\vc6.0\vc\include\string.h(197) : 参见“strtok”的声明
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         E:\IDE\VC6.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\TcpRpcServer.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\TcpRpcServer.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\TcpRpcServer.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\TcpRpcServer.lib" /MACHINE:X86 Debug\TcpRpcServer.exe.embed.manifest.res
+         Debug\stdafx.obj
+         Debug\TcpRpcServer.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\TcpRpcServer.exe.embed.manifest" /manifest Debug\TcpRpcServer.exe.intermediate.manifest
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         TcpRpcServer.vcxproj -> E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\TcpRpcServer.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\TcpRpcServer.unsuccessfulbuild”。
+         正在对“Debug\TcpRpcServer.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\IDE\VC6.0\MyProject\CalculateComplexity\TcpRpcServer\TcpRpcServer.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.89

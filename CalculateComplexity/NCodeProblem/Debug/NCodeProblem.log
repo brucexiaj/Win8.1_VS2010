@@ -1,0 +1,11 @@
+﻿生成启动时间为 2017/6/1 15:00:43。
+     1>项目“E:\IDE\VC6.0\MyProject\CalculateComplexity\NCodeProblem\NCodeProblem.vcxproj”在节点 2 上(ClCompile 个目标)。
+     1>ClCompile:
+         E:\IDE\VC6.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\NCodeProblem.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt NCodeProblem.cpp
+         NCodeProblem.cpp
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\ncodeproblem\ncodeproblem.cpp(2): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "StdAfx.h"”?
+     1>已完成生成项目“E:\IDE\VC6.0\MyProject\CalculateComplexity\NCodeProblem\NCodeProblem.vcxproj”(ClCompile 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:01.83

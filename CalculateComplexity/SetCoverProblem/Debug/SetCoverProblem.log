@@ -1,0 +1,34 @@
+﻿生成启动时间为 2017/5/9 7:02:56。
+     1>项目“E:\IDE\VC6.0\MyProject\CalculateComplexity\SetCoverProblem\SetCoverProblem.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“Debug\SetCoverProblem.lastbuildstate”。
+       InitializeBuildStatus:
+         正在创建“Debug\SetCoverProblem.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         E:\IDE\VC6.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\SetCoverProblem.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         E:\IDE\VC6.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\SetCoverProblem.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt SetCoverProblem.cpp
+         SetCoverProblem.cpp
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\SetCoverProblem.exe.embed.manifest.res" Debug\SetCoverProblem_manifest.rc 
+       Link:
+         E:\IDE\VC6.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\SetCoverProblem.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\SetCoverProblem.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\SetCoverProblem.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\SetCoverProblem.lib" /MACHINE:X86 Debug\SetCoverProblem.exe.embed.manifest.res
+         Debug\SetCoverProblem.obj
+         Debug\stdafx.obj
+       Manifest:
+         正在删除文件“Debug\SetCoverProblem.exe.embed.manifest”。
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\SetCoverProblem.exe.embed.manifest" /manifest Debug\SetCoverProblem.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\SetCoverProblem.exe.embed.manifest.res" Debug\SetCoverProblem_manifest.rc 
+       LinkEmbedManifest:
+         E:\IDE\VC6.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\SetCoverProblem.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\SetCoverProblem.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\SetCoverProblem.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\SetCoverProblem.lib" /MACHINE:X86 Debug\SetCoverProblem.exe.embed.manifest.res
+         Debug\SetCoverProblem.obj
+         Debug\stdafx.obj
+         SetCoverProblem.vcxproj -> E:\IDE\VC6.0\MyProject\CalculateComplexity\Debug\SetCoverProblem.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\SetCoverProblem.unsuccessfulbuild”。
+         正在对“Debug\SetCoverProblem.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\IDE\VC6.0\MyProject\CalculateComplexity\SetCoverProblem\SetCoverProblem.vcxproj”(rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.43
