@@ -6,31 +6,21 @@
 #include "resource.h"
 //原函数类型定义
 typedef int (WINAPI* MsgBoxW)(HWND hWnd,LPCWSTR lpText,LPCWSTR lpCaption,UINT uType);
-MsgBoxW OldMsgBoxW=NULL;//指向原函数的指针
-FARPROC pfOldMsgBoxW;  //指向函数的远指针
-BYTE OldCode[5]; //原系统API入口代码
-BYTE NewCode[5]; //原系统API新的入口代码 (jmp xxxxxxxx)
+FARPROC pfOldMsgBoxW;  //原API函数的地址
+BYTE OldCode[5]; //原API入口代码
+BYTE NewCode[5]; //原API的新的入口地址（帮助调转到新的API）
 
 HANDLE hProcess=NULL;//本程序进程句柄
-HINSTANCE hInst=NULL;//API所在的dll文件句柄
 
 int WINAPI MyMessageBoxW(HWND hWnd,LPCWSTR lpText,LPCWSTR lpCaption,UINT uType)
 {
-
-	
-
-	int nRet=::MessageBoxW(hWnd,_T("哈哈，MessageBoxW被HOOK了"),lpCaption,uType);
-
-
-
+	int nRet=::MessageBoxW(hWnd,_T("哈哈，MessageBoxW被HOOK了"),_T("假的MessageBox"),uType);
 	return nRet;
 }
 
 //开启钩子的函数
-void HookOn() 
+void StartHook() 
 { 
-// ASSERT(hProcess!=NULL);
-
  DWORD dwTemp=0;
  DWORD dwOldProtect;
  
@@ -44,12 +34,12 @@ void HookOn()
 //获取API函数入口前5个字节
 //旧入口前5个字节保存在前面定义的字节数组BYTE OldCode[5]
 //新入口前5个字节保存在前面定义的字节数组BYTE NewCode[5]
-void GetApiEntrance()
+void ChangeAPIEntrance()
 {
  
   //获取原API入口地址
   HMODULE hmod=::LoadLibrary(_T("User32.dll"));
-  OldMsgBoxW=(MsgBoxW)::GetProcAddress(hmod,"MessageBoxA");
+  MsgBoxW OldMsgBoxW=(MsgBoxW)::GetProcAddress(hmod,"MessageBoxA");
   pfOldMsgBoxW=(FARPROC)OldMsgBoxW;
   
   if (pfOldMsgBoxW==NULL)
@@ -69,12 +59,12 @@ void GetApiEntrance()
   }
 
 
-  NewCode[0]=0xe9;//实际上0xe9就相当于jmp指令
+  NewCode[0]=0xe9;//将jump口令存到新API入口代码的第一个字节
 
   //获取MyMessageBoxW的相对地址,为Jmp做准备
   //int nAddr= UserFunAddr – SysFunAddr - （我们定制的这条指令的大小）;
   //Jmp nAddr;
-  //（我们定制的这条指令的大小）, 这里是5，5个字节嘛
+  //（我们定制的这条指令的大小）, 这里是5，5个字节
   _asm 
   { 
    lea eax,MyMessageBoxW //获取我们的MyMessageBoxW函数地址
@@ -84,17 +74,8 @@ void GetApiEntrance()
    mov dword ptr [NewCode+1],eax //将算出的地址nAddr保存到NewCode后面4个字节
 								 //注：一个函数地址占4个字节
   } 
- 
 
-  //填充完毕，现在NewCode[]里的指令相当于Jmp MyMessageBoxW
-  //既然已经获取到了Jmp MyMessageBoxW
-  //现在该是将Jmp MyMessageBoxW写入原API入口前5个字节的时候了
-  //知道为什么是5个字节吗？
-  //Jmp指令相当于0xe9,占一个字节的内存空间
-  //MyMessageBoxW是一个地址，其实是一个整数，占4个字节的内存空间
-  //int n=0x123;   n占4个字节和MyMessageBoxW占4个字节是一样的
-  //1+4=5，知道为什么是5个字节了吧
-  HookOn(); 
+  
 }
 
 
@@ -111,7 +92,8 @@ int main()
 	//启动hook API
 	DWORD dwPid=::GetCurrentProcessId();
 	hProcess=OpenProcess(PROCESS_ALL_ACCESS,0,dwPid); 
-	GetApiEntrance();
+	ChangeAPIEntrance();
+	StartHook(); 
 
 	MessageBoxA(NULL,"调用了User32.dll动态链接库","API挂钩测试",MB_OK);
 	return 0;

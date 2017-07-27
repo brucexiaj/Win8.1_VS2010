@@ -1,42 +1,57 @@
 // AINCodeProblem.cpp : 定义控制台应用程序的入口点。
-//
+/**
+人工智能实验——N码问题
+夏军20170616
+输入：Npuzzle_in.txt
+输出：Npuzzle_out.txt
+如果程序运行异常请减小宏NODES的值
+**/
 
 #include "stdafx.h"
+#include <stdio.h>
+#include <tchar.h>
+#include <stdlib.h>
+#include <time.h>
+
 #define MAXN 6//最大的维度
 #define MAX MAXN*MAXN//最大的码数
-#define NODES 6000//存储最多结构体数量
+#define NODES 150000//存储最多结构体数量
 struct state
 {
 	int middle[MAXN][MAXN];
 	int deepth;//深度
 	int front;//是不是前沿节点
 	int father;//父节点的下标
-	int deleted;//1表示该节点已经作废
+	
 };
 
 typedef struct state State;
 
-//判断两个二维数组是否相等
-int toTarget(int start[MAXN][MAXN],int end[MAXN][MAXN],int number)
+int n=0;//码数
+State state[NODES];//存储所有节点的结构体数组
+int end[MAXN][MAXN];
+
+
+//判断两个二维数组是否相等，相等返回1
+int isArrayEqual(int array1[MAXN][MAXN],int array2[MAXN][MAXN])
 {
-	int temp=0;
-	for(int i=0;i<number;i++)
+	for(int i=0;i<n;i++)
 	{
-		for(int j=0;j<number;j++)
+		for(int j=0;j<n;j++)
 		{
-			if(start[i][j]!=end[i][j])
-				temp++;
+			if(array1[i][j]!=array2[i][j])
+				return 0;
 		}
 	}
-	return temp;
+	return 1;
 }
 
 //获得0在二维数组中的位置
-void locationOfZero(int start[MAXN][MAXN],int zero[2],int number)
+void locationOfZero(int start[MAXN][MAXN],int zero[2])
 {
-	for(int i=0;i<number;i++)
+	for(int i=0;i<n;i++)
 	{
-		for(int j=0;j<number;j++)
+		for(int j=0;j<n;j++)
 		{
 			if(start[i][j]==0)
 			{
@@ -49,129 +64,69 @@ void locationOfZero(int start[MAXN][MAXN],int zero[2],int number)
 }
 
 //0上移
-void moveUp(int start[MAXN][MAXN],int tempArray[MAXN][MAXN],int zero[2],int n)
+void moveUp(int start[MAXN][MAXN],int tempArray[MAXN][MAXN],int zero[2])
 {
-	int x=zero[0];
-	int y=zero[1];
 	for(int i=0;i<n;i++)
 	{
 		for(int j=0;j<n;j++)
 		{
-			if(i==x&&j==y)
-			{
-			}
-			else
-			{
-				if(i==x-1&&j==y)
-				{
-				}
-				else
-				{
-					tempArray[i][j]=start[i][j];
-				}
-			}
+			tempArray[i][j]=start[i][j];
 		}
 	}
-	tempArray[x][y]=start[x-1][y];
-	tempArray[x-1][y]=start[x][y];
+	tempArray[zero[0]][zero[1]]=tempArray[zero[0]-1][zero[1]];
+	tempArray[zero[0]-1][zero[1]]=0;
 }
 
 //0下移
-void moveDown(int start[MAXN][MAXN],int tempArray[MAXN][MAXN],int zero[2],int n)
+void moveDown(int start[MAXN][MAXN],int tempArray[MAXN][MAXN],int zero[2])
 {
-	int x=zero[0];
-	int y=zero[1];
 	for(int i=0;i<n;i++)
 	{
 		for(int j=0;j<n;j++)
 		{
-			if(i==x&&j==y)
-			{
-			}
-			else
-			{
-				if(i==x+1&&j==y)
-				{
-				}
-				else
-				{
-					tempArray[i][j]=start[i][j];
-				}
-			}
+			tempArray[i][j]=start[i][j];
 		}
 	}
-	tempArray[x][y]=start[x+1][y];
-	tempArray[x+1][y]=start[x][y];
+	tempArray[zero[0]][zero[1]]=tempArray[zero[0]+1][zero[1]];
+	tempArray[zero[0]+1][zero[1]]=0;
 }
 
 //0左移
-void moveLeft(int start[MAXN][MAXN],int tempArray[MAXN][MAXN],int zero[2],int n)
+void moveLeft(int start[MAXN][MAXN],int tempArray[MAXN][MAXN],int zero[2])
 {
-	int x=zero[0];
-	int y=zero[1];
 	for(int i=0;i<n;i++)
 	{
 		for(int j=0;j<n;j++)
 		{
-			if(i==x&&j==y)
-			{
-			}
-			else
-			{
-				if(i==x&&j==y-1)
-				{
-				}
-				else
-				{
-					tempArray[i][j]=start[i][j];
-				}
-			}
+			tempArray[i][j]=start[i][j];
 		}
 	}
-	tempArray[x][y]=start[x][y-1];
-	tempArray[x][y-1]=start[x][y];
+	tempArray[zero[0]][zero[1]]=tempArray[zero[0]][zero[1]-1];
+	tempArray[zero[0]][zero[1]-1]=0;
 }
 //0右移
-void moveRight(int start[MAXN][MAXN],int tempArray[MAXN][MAXN],int zero[2],int n)
+void moveRight(int start[MAXN][MAXN],int tempArray[MAXN][MAXN],int zero[2])
 {
-	int x=zero[0];
-	int y=zero[1];
 	for(int i=0;i<n;i++)
 	{
 		for(int j=0;j<n;j++)
 		{
-			if(i==x&&j==y)
-			{
-			}
-			else
-			{
-				if(i==x&&j==y+1)
-				{
-				}
-				else
-				{
-					tempArray[i][j]=start[i][j];
-				}
-			}
+			tempArray[i][j]=start[i][j];
 		}
 	}
-	tempArray[x][y]=start[x][y+1];
-	tempArray[x][y+1]=start[x][y];
+	tempArray[zero[0]][zero[1]]=tempArray[zero[0]][zero[1]+1];
+	tempArray[zero[0]][zero[1]+1]=0;
 }
 
-//计算两个八码状态之间的曼哈顿距离
-int distance(int temp[MAXN][MAXN],int end[MAXN][MAXN],int n)
+//计算两个八码状态之间的曼哈顿距离(第一种启发式，本程序实际使用的启发式)
+int distance(int temp[MAXN][MAXN])
 {
 	int totalDistance=0;
 	for(int i=0;i<n;i++)
 	{
 		for(int j=0;j<n;j++)
 		{
-			if(temp[i][j]==0)
-			{
-				continue;
-			}
-			else
+			if(temp[i][j]!=0)
 			{
 				int value=temp[i][j];
 				for(int x=0;x<n;x++)
@@ -181,7 +136,7 @@ int distance(int temp[MAXN][MAXN],int end[MAXN][MAXN],int n)
 						if(value==end[x][y])
 						{
 							totalDistance=abs(i-x)+abs(j-y)+totalDistance;
-
+							break;
 						}
 					}
 				}
@@ -191,41 +146,64 @@ int distance(int temp[MAXN][MAXN],int end[MAXN][MAXN],int n)
 	return totalDistance;
 }
 
-//判断是否有解
-int solveAble(int s[MAXN][MAXN],int e[MAXN][MAXN],int n)
+//计算两个二维数组对应元素不相等的总数目（第二种启发式，本程序测试过程中使用）
+int falseLocationNumber(int start[MAXN][MAXN])
 {
-	int start[MAX]={0},end[MAX]={0};
-	int count=0;
+	int temp=0;
 	for(int i=0;i<n;i++)
 	{
 		for(int j=0;j<n;j++)
 		{
-			start[count]=s[i][j];
-			end[count++]=e[i][j];
+			if(start[i][j]!=end[i][j])
+				temp++;
+		}
+	}
+	return temp;
+}
+
+//判断是否有解，用逆序数的改加上0的位置的改变综合考虑
+//返回0表示无解
+int solveAble(int s[MAXN][MAXN])
+{
+	int startArray[MAX]={0},endArray[MAX]={0};
+	int count=0;
+	int i=0,j=0;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			startArray[count]=s[i][j];
+			endArray[count++]=end[i][j];
 		}
 	}
 	int startNumber=0,endNumber=0;
-	//求初始状态的逆序数
-	for(int i=0;i<n*n;i++)
+	//求初始状态的逆序数（0也考虑在内）
+	for(i=0;i<n*n;i++)
 	{
-		for(int j=i+1;j<n*n;j++)
+		for(j=i+1;j<n*n;j++)
 		{
-			if(start[i]&&start[j]&&start[i]<start[j])
+			if(startArray[i]<startArray[j])
 				startNumber++;
 		}
 	}
-	//求结束状态的逆序数
-	for(int i=0;i<n*n;i++)
+	//求结束状态的逆序数（0也考虑在内）
+	for(i=0;i<n*n;i++)
 	{
-		for(int j=i+1;j<n*n;j++)
+		for(j=i+1;j<n*n;j++)
 		{
-			if(end[i]&&end[j]&&end[i]<end[j])
+			if(endArray[i]<endArray[j])
 				endNumber++;
 		}
 	}
-	if((startNumber+endNumber)%2==0)
+	//求开始的0与结束的0之间的曼哈顿距离
+	int startZero[2]={0,0};
+	int endZero[2]={0,0};
+	locationOfZero(s,startZero);
+	locationOfZero(end,endZero);
+	int distanceOfZero=abs(startZero[0]-endZero[0])+abs(startZero[1]-endZero[1]);
+	if((startNumber+endNumber+distanceOfZero)%2==0)
 	{
-		return 1;
+		return 1;//有解
 	}
 	else
 	{
@@ -234,47 +212,56 @@ int solveAble(int s[MAXN][MAXN],int e[MAXN][MAXN],int n)
 }
 
 //求出此时应该扩展的前沿节点的下标
-int extendNodeIndex(State state[NODES],int n,int end[MAXN][MAXN],int currentIndex)
+//整个程序中，对于不同的启发式，代码只有这里是不一样的
+int extendNodeIndex(int currentIndex)
 {
 	int minCost=10000;
 	int minFlag=0;
+	//这里采用的是曼哈顿距离和的启发式
 	for(int i=0;i<currentIndex;i++)
 	{
 		
-		if(!state[i].deleted&&state[i].front&&minCost>=state[i].deepth+distance(state[i].middle,end,n))
+		if(state[i].front&&minCost>=state[i].deepth+distance(state[i].middle))
 		{
-			minCost=state[i].deepth+distance(state[i].middle,end,n);
+			minCost=state[i].deepth+distance(state[i].middle);
 			minFlag=i;
 		}
 		
 	}
+	
+	
+	/*	这里是不在位的棋子数的启发式
+	for(int i=0;i<currentIndex;i++)
+	{
+		
+		if(state[i].front&&minCost>=state[i].deepth+falseLocationNumber(state[i].middle))
+		{
+			minCost=state[i].deepth+falseLocationNumber(state[i].middle);
+			minFlag=i;
+		}
+		
+	}
+	*/
 	return minFlag;
 }
 
 //判断某个节点在结构体数组中是不是出现过，出现过则删掉他
-int isRepeat(State state[NODES],int currentUsedIndex,State current,int n)
+//返回1表示删除该节点
+int isRepeat(int currentUsedIndex,State current)
 {
 	for(int i=0;i<currentUsedIndex;i++)
 	{
-		if(!state[i].deleted&&!toTarget(state[i].middle,current.middle,n))//与之前的某一个节点重合
+		if(isArrayEqual(state[i].middle,current.middle))//与之前的某一个节点重合
 		{
-			if(!state[i].front)//如果是非前沿节点
+			if(!state[i].front)//如果与非前沿节点重合，删除该节点
 			{
-				if(current.deepth<state[i].deepth)
-				{
-					state[i].deleted=1;
-					return 0;
-				}
-				else
-				{
-					return 1;
-				}
+				return 1;
 			}
 			else
 			{
-				if(current.deepth<state[i].deepth)
+				if(current.deepth<state[i].deepth)//如果与前沿节点重合而且它的深度比前沿节点小，删除前沿节点
 				{
-					state[i].deleted=1;
+					state[i].front=0;
 					return 0;
 				}
 				else
@@ -290,7 +277,7 @@ int isRepeat(State state[NODES],int currentUsedIndex,State current,int n)
 }
 
 //将State对象回复出厂模式
-void toZero(State temp,int n)
+void toZero(State temp)
 {
 	for(int i=0;i<n;i++)
 	{
@@ -305,29 +292,23 @@ void toZero(State temp,int n)
 }
 
 //根据下标扩展前沿节点中的某一个，返回扩展后结构体数组的有效下标
-int extendSpecificFrontier(int index,State state[NODES],int n,int currentUsedIndex)
+int extendSpecificFrontier(int index,int currentUsedIndex)
 {
 	//获取0的位置
-	int zero[2];
-	locationOfZero(state[index].middle,zero,n);
-	int x=zero[0];
-	int y=zero[1];
-	int deleteIndex=0;
+	int zero[2]={0};
+	locationOfZero(state[index].middle,zero);
 	//上移
-	if(x==0)
-	{
-	}
-	else
+	if(zero[0]!=0)
 	{
 		//分配一个节点给新的扩展
 		state[currentUsedIndex].deepth=state[index].deepth+1;
 		state[currentUsedIndex].front=1;
 		state[currentUsedIndex].father=index;
-		moveUp(state[index].middle,state[currentUsedIndex].middle,zero,n);
+		moveUp(state[index].middle,state[currentUsedIndex].middle,zero);
 		//判断这个节点是不是之前出现过，出现过则删掉它
-		if(isRepeat(state,currentUsedIndex-1,state[currentUsedIndex],n))
+		if(isRepeat(currentUsedIndex-1,state[currentUsedIndex]))
 		{
-			toZero(state[currentUsedIndex],n);
+			toZero(state[currentUsedIndex]);
 		
 		}
 		else
@@ -337,19 +318,17 @@ int extendSpecificFrontier(int index,State state[NODES],int n,int currentUsedInd
 		
 	}
 	//下移
-	if(x==n-1)
-	{}
-	else
+	if(zero[0]!=n-1)
 	{
 		//分配一个节点给新的扩展
 		state[currentUsedIndex].deepth=state[index].deepth+1;
 		state[currentUsedIndex].front=1;
 		state[currentUsedIndex].father=index;
-		moveDown(state[index].middle,state[currentUsedIndex].middle,zero,n);
+		moveDown(state[index].middle,state[currentUsedIndex].middle,zero);
 		//判断这个节点是不是之前出现过，出现过则删掉它
-		if(isRepeat(state,currentUsedIndex-1,state[currentUsedIndex],n))
+		if(isRepeat(currentUsedIndex-1,state[currentUsedIndex]))
 		{
-			toZero(state[currentUsedIndex],n);
+			toZero(state[currentUsedIndex]);
 		
 		}
 		else
@@ -358,19 +337,17 @@ int extendSpecificFrontier(int index,State state[NODES],int n,int currentUsedInd
 		}
 	}
 	//左移
-	if(y==0)
-	{}
-	else
+	if(zero[1]!=0)
 	{
 		//分配一个节点给新的扩展
 		state[currentUsedIndex].deepth=state[index].deepth+1;
 		state[currentUsedIndex].front=1;
 		state[currentUsedIndex].father=index;
-		moveLeft(state[index].middle,state[currentUsedIndex].middle,zero,n);
+		moveLeft(state[index].middle,state[currentUsedIndex].middle,zero);
 		//判断这个节点是不是之前出现过，出现过则删掉它
-		if(isRepeat(state,currentUsedIndex-1,state[currentUsedIndex],n))
+		if(isRepeat(currentUsedIndex-1,state[currentUsedIndex]))
 		{
-			toZero(state[currentUsedIndex],n);
+			toZero(state[currentUsedIndex]);
 		
 		}
 		else
@@ -381,19 +358,17 @@ int extendSpecificFrontier(int index,State state[NODES],int n,int currentUsedInd
 		
 	}
 	//右移
-	if(y==n-1)
-	{}
-	else
+	if(zero[1]!=n-1)
 	{
 		//分配一个节点给新的扩展
 		state[currentUsedIndex].deepth=state[index].deepth+1;
 		state[currentUsedIndex].front=1;
 		state[currentUsedIndex].father=index;
-		moveRight(state[index].middle,state[currentUsedIndex].middle,zero,n);
+		moveRight(state[index].middle,state[currentUsedIndex].middle,zero);
 		//判断这个节点是不是之前出现过，出现过则删掉它
-		if(isRepeat(state,currentUsedIndex-1,state[currentUsedIndex],n))
+		if(isRepeat(currentUsedIndex-1,state[currentUsedIndex]))
 		{
-			toZero(state[currentUsedIndex],n);
+			toZero(state[currentUsedIndex]);
 		
 		}
 		else
@@ -410,25 +385,14 @@ int extendSpecificFrontier(int index,State state[NODES],int n,int currentUsedInd
 }
 
 //判断是否结束
-int isResult(State state[NODES],int end[MAXN][MAXN],int currentUsedIndex,int n,int *re)
+int isResult(int currentUsedIndex,int *re)
 {
 	//从刚刚扩展的四个节点中查询，看看是否有和目标节点相同的值
 	for(int i=currentUsedIndex-1;i>=currentUsedIndex-4;i--)
 	{
-		if(!toTarget(state[i].middle,end,n))
+		if(isArrayEqual(state[i].middle,end))
 		{
 			*re=i;
-			/*
-			printf("**********************************\n");
-			for(int k=0;k<n;k++)
-			{
-				for(int j=0;j<n;j++)
-				{
-					printf("%d\t",state[i].middle[k][j]);
-				}
-				printf("\n");
-			}
-			*/
 			return 1;//结束
 		}
 			
@@ -439,11 +403,15 @@ int isResult(State state[NODES],int end[MAXN][MAXN],int currentUsedIndex,int n,i
 
 int main()
 {
-	int start[MAXN][MAXN],end[MAXN][MAXN];
+	
+    clock_t startTime, finishTime;
+    double  duration;
+    startTime = clock();
+
+	int start[MAXN][MAXN];
 	int i,j,k,a=0;
 	int step=0;
 	int currentUsedIndex=0;
-	State myState[NODES];
 	//初始化结构体数组
 	for(i=0;i<NODES;i++)
 	{
@@ -451,18 +419,17 @@ int main()
 		{
 			for(j=0;j<MAXN;j++)
 			{
-				myState[i].middle[k][j]=-1;
+				state[i].middle[k][j]=-1;
 			}
 		}
-		myState[i].deepth=0;
-		myState[i].front=0;
-		myState[i].father=0;
-		myState[i].deleted=0;
+		state[i].deepth=0;
+		state[i].front=0;
+		state[i].father=0;
+		
 	}
 	
 	//从文件中获取数据
-	FILE *file=fopen("npuzzle_in.txt","r");
-	int n=0;
+	FILE *file=fopen("Npuzzle_in.txt","r");
 	fscanf(file,"%d",&n);
 	for(i=0;i<n;i++)
 	{
@@ -482,66 +449,45 @@ int main()
 
 	//printf("to:%d\n",toTarget(start,end,n));
 	//判断是否有解
-	if(!solveAble(start,end,n))
+	if(!solveAble(start))
 	{
 		printf("无解\n");
 		exit(0);
 	}
 
 	//将初始状态加入到结构体数组中
-	for(k=0;k<n;k++)
+	for(i=0;i<n;i++)
 	{
 		for(j=0;j<n;j++)
 		{
-			myState[0].middle[k][j]=start[k][j];
+			state[0].middle[i][j]=start[i][j];
 		}
 	}
-	myState[i].deepth=0;
-	myState[i].front=1;
-	myState[i].father=0;
+	state[0].front=1;
 	currentUsedIndex++;
 
 	int re=0;
-	while(!isResult(myState,end,currentUsedIndex,n,&re))
+	while(!isResult(currentUsedIndex,&re))
 	{
 		//求出此时应该扩展的前沿节点的下标
-		int extendIndex=extendNodeIndex(myState,n,end,currentUsedIndex);
-		//printf("extendIndex:%d\n",extendIndex);
+		int extendIndex=extendNodeIndex(currentUsedIndex);
 		
 		//扩展该节点
-		currentUsedIndex=extendSpecificFrontier(extendIndex,myState,n,currentUsedIndex);
-		/*
-		int test=extendIndex;
+		currentUsedIndex=extendSpecificFrontier(extendIndex,currentUsedIndex);
 		
-		for(i=0;i<MAXN;i++)
-		{
-			for(j=0;j<MAXN;j++)
-			{
-				printf("%d\t",myState[test].middle[i][j]);
-			}
-			printf("\n");
-		}
-		printf("deepth:%d\n",myState[test].deepth);
-		printf("front:%d\n",myState[test].front);
-		
-		printf("father:%d\n",myState[test].father);
-		*/
-		//if(step==9)
-		//break;
 		
 	}
-	//printf("步数:%d\n",step);
-	//printf("re:%d\n",re);
+	
 	int printIndex[100];
 	for(i=0;i<100;i++)
 	{
 		printIndex[i]=-1;
 	}
 	//计算从终点到起点的路径上的所有点的下标并存储
-	while(myState[re].father!=0)
+	while(state[re].father!=0)
 	{
 		
-		re=myState[re].father;
+		re=state[re].father;
 		printIndex[step]=re;
 		step++;
 	}
@@ -556,8 +502,8 @@ int main()
 	{
 		for(j=0;j<n;j++)
 		{
-			printf("%d ",myState[0].middle[i][j]);
-			fprintf(out,"%d ",myState[0].middle[i][j]);
+			printf("%d ",state[0].middle[i][j]);
+			fprintf(out,"%d ",state[0].middle[i][j]);
 		}
 		printf("\n");
 		fprintf(out,"\n");
@@ -576,8 +522,8 @@ int main()
 			{
 				for(j=0;j<n;j++)
 				{
-					printf("%d ",myState[printIndex[k]].middle[i][j]);
-					fprintf(out,"%d ",myState[printIndex[k]].middle[i][j]);
+					printf("%d ",state[printIndex[k]].middle[i][j]);
+					fprintf(out,"%d ",state[printIndex[k]].middle[i][j]);
 				}
 				printf("\n");
 				fprintf(out,"\n");
@@ -599,6 +545,11 @@ int main()
 	}
 	
 	fclose(out);
+	
+    finishTime = clock();
+    duration = (double)(finishTime - startTime) / CLOCKS_PER_SEC;
+	printf("总共扩展节点的数量:%d\n",currentUsedIndex);
+    printf( "耗时%f秒\n", duration);
 	return 0;
 }
 

@@ -203,6 +203,12 @@ void main()
 	{
 		
 		int cfp=minPath(addAblePath,&G);
+		for(int i=0;i<MAXVEX;i++)
+		{
+			printf("%d",addAblePath[i]);
+		}
+		printf("\n");
+		//printf("%d\n",cfp);
 		//求出可增道路的真实长度
 		int length=0;
 		for(int i=0;i<MAXVEX;i++)

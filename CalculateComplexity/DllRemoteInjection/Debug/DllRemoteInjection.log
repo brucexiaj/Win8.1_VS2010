@@ -1,4 +1,4 @@
-﻿生成启动时间为 2017/6/15 11:16:02。
+﻿生成启动时间为 2017/6/30 12:34:58。
      1>项目“E:\IDE\VC6.0\MyProject\CalculateComplexity\DllRemoteInjection\DllRemoteInjection.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\DllRemoteInjection.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
@@ -6,11 +6,9 @@
          所有输出均为最新。
          E:\IDE\VC6.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\DllRemoteInjection.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DllRemoteInjection.cpp
          DllRemoteInjection.cpp
-     1>e:\ide\vc6.0\myproject\calculatecomplexity\dllremoteinjection\dllremoteinjection.cpp(101): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\dllremoteinjection\dllremoteinjection.cpp(100): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  e:\ide\vc6.0\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>e:\ide\vc6.0\myproject\calculatecomplexity\dllremoteinjection\dllremoteinjection.cpp(107): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 e:\ide\vc6.0\vc\include\stdio.h(304) : 参见“scanf”的声明
-     1>e:\ide\vc6.0\myproject\calculatecomplexity\dllremoteinjection\dllremoteinjection.cpp(128): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\dllremoteinjection\dllremoteinjection.cpp(120): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  e:\ide\vc6.0\vc\include\string.h(105) : 参见“strcpy”的声明
        ManifestResourceCompile:
          所有输出均为最新。
@@ -31,4 +29,4 @@
 
 生成成功。
 
-已用时间 00:00:03.00
+已用时间 00:00:11.88

@@ -1,0 +1,17 @@
+﻿生成启动时间为 2017/7/22 8:36:17。
+     1>项目“E:\IDE\VC6.0\MyProject\CalculateComplexity\DelieverMessage\DelieverMessage.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\DelieverMessage.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         E:\IDE\VC6.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\DelieverMessage.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         E:\IDE\VC6.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\DelieverMessage.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DelieverMessage.cpp
+         DelieverMessage.cpp
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\delievermessage\delievermessage.cpp(5): warning C4627: “#include "stdio.h"”: 在查找预编译头使用时跳过
+                 将指令添加到“StdAfx.h”或重新生成预编译头
+     1>e:\ide\vc6.0\myproject\calculatecomplexity\delievermessage\delievermessage.cpp(68): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "StdAfx.h"”?
+     1>已完成生成项目“E:\IDE\VC6.0\MyProject\CalculateComplexity\DelieverMessage\DelieverMessage.vcxproj”(build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:01.44
