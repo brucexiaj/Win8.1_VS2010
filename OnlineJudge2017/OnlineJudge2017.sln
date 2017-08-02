@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RebuildBinaryTree", "RebuildBinaryTree\RebuildBinaryTree.vcxproj", "{65F80E27-6682-4BA5-9B1A-D9F1D6DF5BAD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TSP", "TSP\TSP.vcxproj", "{D46CC7BD-4F04-4175-B293-215BBC4B656D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{65F80E27-6682-4BA5-9B1A-D9F1D6DF5BAD}.Debug|Win32.Build.0 = Debug|Win32
 		{65F80E27-6682-4BA5-9B1A-D9F1D6DF5BAD}.Release|Win32.ActiveCfg = Release|Win32
 		{65F80E27-6682-4BA5-9B1A-D9F1D6DF5BAD}.Release|Win32.Build.0 = Release|Win32
+		{D46CC7BD-4F04-4175-B293-215BBC4B656D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D46CC7BD-4F04-4175-B293-215BBC4B656D}.Debug|Win32.Build.0 = Debug|Win32
+		{D46CC7BD-4F04-4175-B293-215BBC4B656D}.Release|Win32.ActiveCfg = Release|Win32
+		{D46CC7BD-4F04-4175-B293-215BBC4B656D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
